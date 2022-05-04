@@ -25,7 +25,8 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-html, body{
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -34,11 +35,13 @@ body {
   font-size: 1.6rem;
 
   text-align: center;
+
+  overflow: overlay;
 }
 .container {
   width: 37.5rem;
   margin-inline: auto;
-  padding-inline:2.4rem;
+  padding-inline: 2.4rem;
 }
 
 /*===============Navegação===============*/
@@ -52,19 +55,111 @@ nav {
   left: 50%;
   transform: translateX(-50%);
 }
-nav .container{
+nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-nav.scroll{
+nav.scroll {
   width: 100vw;
   background-color: var(--brand);
 }
-nav.scroll svg:nth-child(1) path{
+nav.scroll svg:nth-child(1) path {
   fill: var(--white);
 }
-nav.scroll svg:nth-child(2) path{
+nav.scroll button path {
+  stroke: var(--white);
+}
+
+nav button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/*===============Menu===============*/
+body.menuExpended {
+  overflow: hidden;
+}
+
+body.menuExpended > :not(#navigation){
+  display: none ;
+}
+
+.menu,
+.closeMenu,
+body.menuExpended .openMenu{
+ display: none;
+}
+body.menuExpended .menu,
+body.menuExpended .closeMenu {
+  display: flex;
+}
+
+
+body.menuExpended .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--brand);
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top:calc(var(--nav-height) + 6rem)
+}
+body.menuExpended nav {
+  position: relative;
+}
+
+.menu .menuLinks{
+display: flex;
+gap: 4.8rem;
+flex-direction: column;
+
+
+font-weight: 700;
+font-size: 2.4rem;
+line-height: 3.1rem;
+color: var(--white);
+}
+.menu .menuLinks a{
+  color: var(--white);
+}
+ 
+.menu .button{
+  background-color: var(--white);
+  border-radius: 4rem;
+
+  padding: 1.6rem 3.2rem;
+
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  color: var(--brand);
+
+  margin-top: 4.8rem;
+}
+.menu .socialLinks{
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 8rem;
+}
+
+body.menuExpended .logo,
+body.menuExpended button{
+  position: relative;
+  z-index: 100;
+}
+body.menuExpended .logo path {
+  fill: var(--white);
+}
+body.menuExpended button path {
   stroke: var(--white);
 }
 
@@ -76,7 +171,7 @@ header::before {
   content: '';
 
   width: 100%;
-  height: calc(108rem + var(--nav-height)) ;
+  height: calc(108rem + var(--nav-height));
 
   background-color: var(--brand-light);
 
