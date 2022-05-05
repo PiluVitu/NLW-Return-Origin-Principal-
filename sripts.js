@@ -18,4 +18,19 @@ function closeMenu(){
     
   }
 
-  ScrollReveal().reveal('.container');
+  ScrollReveal({
+    origin: 'top',
+    distance:'30px',
+    duration: 1100,
+  }).reveal(`
+  #home header,
+  #home .content, 
+  #home img, 
+  #home .stats, 
+  #services, 
+  #services header,
+  #services .card,
+  #about,
+  #about header,
+  #about .content,
+  #about .content img`);

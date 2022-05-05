@@ -46,6 +46,47 @@ body {
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
+img{
+  width: 100%;
+}
+section {
+  padding-block: 10rem;
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--brand);
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.6rem;
+}
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  color: var(--headline);
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 2.4rem;
+}
+
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;  
+  line-height: 150%;  
+
+  color: var(--paragraph);
+}
 
 /*===============Navegação===============*/
 nav {
@@ -55,8 +96,9 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw;
+
+  z-index: 100;
 }
 nav .container {
   display: flex;
@@ -67,7 +109,7 @@ nav.scroll {
   width: 100vw;
   background-color: var(--brand);
 }
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: var(--white);
 }
 nav.scroll button path {
@@ -85,7 +127,7 @@ body.menuExpended {
 }
 
 body.menuExpended > :not(#navigation) {
-  display: none;
+  visibility: hidden;
 }
 
 .menu,
@@ -121,9 +163,6 @@ body.menuExpended .menu {
   transition:transform 400ms;
   
   transform: translateY(0);
-}
-body.menuExpended nav {
-  position: relative;
 }
 
 .menu .menuLinks {
@@ -195,27 +234,10 @@ body.menuExpended button path {
 }
 
 #home h4 {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-  color: var(--brand);
-  letter-spacing: 0.08em;
-
   margin-bottom: 1.6rem;
 }
 
-#home h1 {
-  font-size: 3.4rem;
-
-  color: var(--headline);
-
-  margin-bottom: 2.4rem;
-}
-
 #home p {
-  color: var(--paragraph);
-  font-size: 1.8rem;
-  line-height: 2.7rem;
-
   margin-bottom: 3.2rem;
 }
 
@@ -288,22 +310,8 @@ body.menuExpended button path {
   padding-block: 10rem;
 }
 
-#services h4 {
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 150%;
-  color: var(--brand);
-  letter-spacing: 0.08rem;
-}
-
 #services h2 {
-  font-weight: 700;
-  font-size: 3rem;
-  line-height: 3.9rem;
-
   margin: 1.6rem 0 6rem;
-
-  color: var(--headline);
 }
 
 #services .cards {
@@ -330,9 +338,27 @@ body.menuExpended button path {
 
   color: var(--headline);
 }
-#services .card p {
-  font-size: 1.6rem;
-  line-height: 150%;
 
-  color: var(--paragraph);
+/*===============About===============*/
+
+#about{
+  padding-block: 10rem;
+  background-color: var(--brand-02);
+}
+#about header{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  text-align: left;
+
+  margin-bottom: 2.4rem;
+}
+#about .content{
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+}
+#about .content p {
+  text-align: left;
 }
