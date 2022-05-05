@@ -2,7 +2,7 @@
 :root {
   font-size: 62.2%; /* 1rem = 10px*/
 
-  --brand: hsl(170, 100%, 26%);
+  --brand: hsl(170deg 97% 26%);
   --brand-hover: hsl(170, 100%, 14%);
   --brand-02: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
@@ -13,6 +13,7 @@
   --white: hsl(0, 0%, 100%);
 
   --nav-height: 7.2rem;
+  scroll-behavior: smooth;
 }
 * {
   padding: 0;
@@ -37,6 +38,8 @@ body {
   text-align: center;
 
   overflow: overlay;
+
+  background-color: var(--brand-light-02);
 }
 .container {
   width: 37.5rem;
@@ -71,7 +74,7 @@ nav.scroll button path {
   stroke: var(--white);
 }
 
-nav button{
+nav button {
   background: none;
   border: none;
   cursor: pointer;
@@ -81,20 +84,25 @@ body.menuExpended {
   overflow: hidden;
 }
 
-body.menuExpended > :not(#navigation){
-  display: none ;
+body.menuExpended > :not(#navigation) {
+  display: none;
 }
 
 .menu,
 .closeMenu,
-body.menuExpended .openMenu{
- display: none;
+body.menuExpended .openMenu {
+  opacity: 0;
+  visibility: hidden;
 }
 body.menuExpended .menu,
 body.menuExpended .closeMenu {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
+.menu{
+  transform: translateY(-100%);
+}
 
 body.menuExpended .menu {
   position: fixed;
@@ -108,28 +116,31 @@ body.menuExpended .menu {
   flex-direction: column;
   align-items: center;
 
-  padding-top:calc(var(--nav-height) + 6rem)
+  padding-top: calc(var(--nav-height) + 6rem);
+
+  transition:transform 400ms;
+  
+  transform: translateY(0);
 }
 body.menuExpended nav {
   position: relative;
 }
 
-.menu .menuLinks{
-display: flex;
-gap: 4.8rem;
-flex-direction: column;
+.menu .menuLinks {
+  display: flex;
+  gap: 4.8rem;
+  flex-direction: column;
 
-
-font-weight: 700;
-font-size: 2.4rem;
-line-height: 3.1rem;
-color: var(--white);
-}
-.menu .menuLinks a{
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
   color: var(--white);
 }
- 
-.menu .button{
+.menu .menuLinks a {
+  color: var(--white);
+}
+
+.menu .button {
   background-color: var(--white);
   border-radius: 4rem;
 
@@ -142,7 +153,7 @@ color: var(--white);
 
   margin-top: 4.8rem;
 }
-.menu .socialLinks{
+.menu .socialLinks {
   display: flex;
   gap: 3.2rem;
   align-items: center;
@@ -152,7 +163,7 @@ color: var(--white);
 }
 
 body.menuExpended .logo,
-body.menuExpended button{
+body.menuExpended button {
   position: relative;
   z-index: 100;
 }
@@ -163,11 +174,11 @@ body.menuExpended button path {
   stroke: var(--white);
 }
 
-/*===============Header===============*/
-header {
-  margin-top: calc(4.1rem + var(--nav-height));
+/*===============Home===============*/
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
 }
-header::before {
+#home::before {
   content: '';
 
   width: 100%;
@@ -183,7 +194,7 @@ header::before {
   left: 0;
 }
 
-header h4 {
+#home h4 {
   font-size: 1.4rem;
   line-height: 2.1rem;
   color: var(--brand);
@@ -192,7 +203,7 @@ header h4 {
   margin-bottom: 1.6rem;
 }
 
-header h1 {
+#home h1 {
   font-size: 3.4rem;
 
   color: var(--headline);
@@ -200,7 +211,7 @@ header h1 {
   margin-bottom: 2.4rem;
 }
 
-header p {
+#home p {
   color: var(--paragraph);
   font-size: 1.8rem;
   line-height: 2.7rem;
@@ -208,7 +219,7 @@ header p {
   margin-bottom: 3.2rem;
 }
 
-header button {
+#home button {
   background: var(--brand);
 
   border: none;
@@ -232,7 +243,7 @@ header button {
   text-transform: uppercase;
 }
 
-header img {
+#home img {
   width: 26.4rem;
 
   margin: 0 auto;
@@ -270,4 +281,58 @@ header img {
   line-height: 150%;
 
   color: var(--brand);
+}
+
+/*===============Services===============*/
+#services {
+  padding-block: 10rem;
+}
+
+#services h4 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 150%;
+  color: var(--brand);
+  letter-spacing: 0.08rem;
+}
+
+#services h2 {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  margin: 1.6rem 0 6rem;
+
+  color: var(--headline);
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding: 2.4rem;
+
+  text-align: left;
+
+  border: solid 0.1rem var(--brand-light);
+  border-radius: 0.6rem;
+}
+#services .card h3 {
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+
+  color: var(--headline);
+}
+#services .card p {
+  font-size: 1.6rem;
+  line-height: 150%;
+
+  color: var(--paragraph);
 }

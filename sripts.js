@@ -1,5 +1,5 @@
 function onScroll(){
-  if(scrollY > 46){
+  if(scrollY > 75){
     navigation.classList.add('scroll');
   } else{
     navigation.classList.remove('scroll');
@@ -13,3 +13,9 @@ function openMenu(){
 function closeMenu(){
   document.body.classList.remove('menuExpended')
   }
+
+  let scrollPage = {
+    
+  }
+
+  ScrollReveal().reveal('.container');
