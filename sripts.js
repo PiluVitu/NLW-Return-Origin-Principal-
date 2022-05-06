@@ -1,8 +1,23 @@
+window.addEventListener('scroll', onScroll)
+
 function onScroll(){
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll(){
   if(scrollY > 75){
     navigation.classList.add('scroll');
   } else{
     navigation.classList.remove('scroll');
+  }
+}
+
+function showBackToTopButtonOnScroll(){
+  if(scrollY > 550){
+    backToTopButton.classList.add('show');
+  } else{
+    backToTopButton.classList.remove('show');
   }
 }
 
@@ -33,4 +48,8 @@ function closeMenu(){
   #about,
   #about header,
   #about .content,
-  #about .content img`);
+  #about .content img,
+  #contact,
+  #contact header,
+  #contact content,
+  #contact img`);
